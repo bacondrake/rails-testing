@@ -10,6 +10,8 @@ All relevant information is basically in the ```test/``` folder.
 * Level 2 - Model tests
 * Level 3 - Refactoring and the 'shoulda' gem
 * Level 4 - Mocks and stubs
+* Level 5 - User simulation with Capybara
+* Level 6 - 
 
 ### Mocks and stubs
 

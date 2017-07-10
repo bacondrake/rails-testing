@@ -1,0 +1,27 @@
+<%= form_with(model: zombie, local: true) do |form| %>
+  <% if zombie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zombie.errors.count, "error") %> prohibited this zombie from being saved:</h2>
+
+      <ul>
+      <% zombie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :zombie_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :graveyard %>
+    <%= form.text_field :graveyard, id: :zombie_graveyard %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

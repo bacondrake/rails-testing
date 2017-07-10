@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ash_1:
+  id: 1
+  content: tweet 1
+  zombie_id: 1
+
+ash_2:
+  id: 2
+  content: tweet 2
+  zombie_id: 1
+
+three:
+  id: 3
+  content: tweet 3
+  zombie_id: 2
+
+hello:
+  id: 4
+  content: hello world
+  zombie_id: 1
