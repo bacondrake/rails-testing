@@ -8,7 +8,12 @@ class ZombieTest < ActiveSupport::TestCase
   # should ensure_length_of(:tweets).is_at_least(2).is_at_most(140) # Not used, here as an example of validation method chaining
 
   def setup
-    @z = zombies(:ash)
+    # Use FactoryGirl to create several zombies. Sequencing in the factories/zombies.rb file means we don't get a validation error on the requirement to keep the name unique
+    5.times { Factory(:zombie) }
+
+    @z = zombies(:ash) # Keep the fixture until all test are changed to factories
+    # @zombie_1 = Factory(:zombie) # This is the same as @z = FactoryGirl.create(:zombie)
+    # @zombie_2 = Factory(:zombie, name: "Ash1") # Create a second zombie but rewrite the name attribute to something unique, as required in our model
   end
 
   test "invalid with all attributes" do
@@ -47,6 +52,11 @@ class ZombieTest < ActiveSupport::TestCase
     @z.weapon.stubs(:slice) # #stubs replaces the code in weapon.slice to simply return nil for this test - because we are not testing any complicated code within the #slice method, just that it returns "dead again" as the zombie status
     @z.decapitate
     assert "dead again", @z.status
+
+    # FactoryGirl version
+    zombie = FactoryGirl.build(:zombie, status: "dead")
+    zombie.decapitate
+    assert_equal "dead again", zombie.status
   end
 
   test "decapitate should call slice" do

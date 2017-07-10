@@ -11,7 +11,7 @@ All relevant information is basically in the ```test/``` folder.
 * Level 3 - Refactoring and the 'shoulda' gem
 * Level 4 - Mocks and stubs
 * Level 5 - User simulation with Capybara
-* Level 6 - 
+* Level 6 - Replacing fixtures with factories using FactoryGirl
 
 ### Mocks and stubs
 
@@ -49,3 +49,6 @@ test "a_method should used to make a status change" do
   assert "status changed", @class_instance.status
 end
 ```
+
+### Note on level 5 onwards
+The tests in level 5 onwards won't work because they are testing elements that don't exist in the application. They are there for indicative purposes. For example, level 5 shows testing with Capybara and serves as a reference point for simulating users with that gem.

@@ -29,6 +29,19 @@ class ZombiesTest < ActionDispatch::IntegrationTest
       click_link zombie.name
       assert_equal zombie_path(zombie), current_path
     end
+
+    # FactoryGirl version
+    zombie = Factory(:zombie)
+    tweet = Factory(:tweet, zombie: zombie) # associates tweet with zombie we've created already. If zombie is not specified, it will create a new tweet with a new zombie for association that's different to the one we've created in the line above
+    # Better than the above
+    tweet = Factory(:tweet) # This creates a zombie to ensure the tweet is associated with a zombie
+    zombie = tweet.zombie   # assign the zombie created in the tweet creation above to the variable zombie
+
+    visit root_url
+    within("#tweet_#{tweet.id}") do
+      click_link zombie.name
+      assert_equal zombie_path(zombie), current_path
+    end
   end
 
   test "should create a new zombie" do

@@ -1,5 +1,6 @@
 class Zombie < ApplicationRecord
-  validates :name, :graveyard, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :graveyard, presence: true
   has_many :tweets
   has_one :weapon
 

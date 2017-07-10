@@ -9,3 +9,13 @@ tim:
   id: 2
   name: Tim
   graveyard: Green Meadows
+
+bill:
+  id: 3
+  name: Bill
+  graveyard: Oak Park
+
+mike:
+  id: 4
+  name: Mike
+  graveyard: Sunnyvale
